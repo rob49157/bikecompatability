@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS Bikeparts_db;
+CREATE DATABASE Bikeparts_db;
