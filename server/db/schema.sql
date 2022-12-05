@@ -1,2 +1,3 @@
-DROP DATABASE IF EXISTS Bikeparts_db;
-CREATE DATABASE Bikeparts_db;
+DROP DATABASE IF EXISTS bike_parts;
+CREATE DATABASE bike_parts;
+USE bike_parts;
