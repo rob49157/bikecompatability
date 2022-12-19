@@ -2,9 +2,7 @@ const Sequelize = require('sequelize')
 const sequelize= require('../config/connections')
 
 
-
-
-const handlebar = sequelize.define("handlebar",{
+const  BottomBracket = sequelize.define("BottomBracket", {
     id:{
         type:Sequelize.INTEGER,
         allowNull: false,
@@ -23,6 +21,8 @@ const handlebar = sequelize.define("handlebar",{
         type:Sequelize.INTEGER,
         allowNull:false
     }
-})
+})  
 
-module.exports = handlebar
+module.exports = BottomBracket
+
+

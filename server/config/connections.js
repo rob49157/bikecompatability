@@ -1,8 +1,7 @@
-const Sequelize = require('sequelize');
+const {Sequelize, DataTypes}  = require('sequelize');
 require('dotenv').config();
-
-
-
+const express = require('express');
+const bodyParser = require('body-parser');
 
   const sequelize = new Sequelize(
   
@@ -16,17 +15,10 @@ require('dotenv').config();
     }
   );
 
-  sequelize.sync().then(() => {
-    console.log('BB table created successfully!');
- }).catch((error) => {
-    console.error('Unable to create table : ', error);
- });
-
-
-sequelize.authenticate().then(() => {
-   console.log('Connection has been established successfully.');
-}).catch((error) => {
-   console.error('Unable to connect to the database: ', error);
-});
+//  sequelize.authenticate().then(() => {
+//    console.log('Connection has been established successfully.');
+// }).catch((error) => {
+//    console.error('Unable to connect to the database: ', error);
+// });
 
 module.exports = sequelize;

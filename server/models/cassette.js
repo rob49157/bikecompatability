@@ -1,26 +1,26 @@
-const { Model, DataTypes} = require('sequilize')
-const sequalize= require('../config/connections')
+const Sequelize = require('sequelize')
+const sequelize= require('../config/connections')
 
 
-class cassette extends Model {}
 
-cassette.init({
+
+const cassette = sequelize.define("cassette",{
     id:{
-        type:DataTypes.INTERGER,
+        type:Sequelize.INTEGER,
         allowNull: false,
         primaryKey:true,
         autoIncrement: true,
     },
     name:{
-        type:DataTypes.STRING,
+        type:Sequelize.STRING,
         allowNull:false,
     },
     size:{
-        type:DataTypes.INTERGER,
+        type:Sequelize.INTEGER,
         allowNull:true,
     },
     price:{
-        type:DataTypes.INTERGER,
+        type:Sequelize.INTEGER,
         allowNull:false
     }
 })

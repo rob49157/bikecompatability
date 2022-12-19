@@ -1,25 +1,24 @@
-const { Model, DataTypes } = require("sequilize");
-const sequalize = require("../config/connections");
+const Sequelize = require('sequelize')
+const sequelize= require('../config/connections')
 
-class rear_travel extends Model {}
 
-rear_travel.init({
+const rear_travel = sequelize.define("rear_travel",{
   id: {
-    type: DataTypes.INTERGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,
     autoIncrement: true,
   },
   name: {
-    type: DataTypes.STRING,
+    type: Sequelize.STRING,
     allowNull: false,
   },
   travel: {
-    type: DataTypes.INTERGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
   },
   price: {
-    type: DataTypes.INTERGER,
+    type: Sequelize.INTEGER,
     allowNull: false,
   },
 });

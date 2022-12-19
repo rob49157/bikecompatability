@@ -1,26 +1,26 @@
-const { Model, DataTypes} = require('sequilize')
-const sequalize= require('../config/connections')
+const Sequelize = require('sequelize')
+const sequelize= require('../config/connections')
 
 
-class iscg_tabs extends Model {}
 
-iscg_tabs.init({
+
+const iscg_tabs = sequelize.define("iscg_tabs",{
     id:{
-        type:DataTypes.INTERGER,
+        type:Sequelize.INTEGER,
         allowNull: false,
         primaryKey:true,
         autoIncrement: true,
     },
     name:{
-        type:DataTypes.STRING,
+        type:Sequelize.STRING,
         allowNull:false,
     },
     size:{
-        type:DataTypes.INTERGER,
+        type:Sequelize.INTEGER,
         allowNull:false,
     },
     price:{
-        type:DataTypes.INTERGER,
+        type:Sequelize.INTEGER,
         allowNull:false
     }
 })

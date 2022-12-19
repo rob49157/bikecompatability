@@ -1,22 +1,22 @@
-const { Model, DataTypes} = require('sequilize')
-const sequalize= require('../config/connections')
+const Sequelize = require('sequelize')
+const sequelize= require('../config/connections')
 
 
-class warranty extends Model {}
 
-warranty.init({
+
+const warranty = sequelize.define("warranty",{
     id:{
-        type:DataTypes.INTERGER,
+        type:Sequelize.INTEGER,
         allowNull: false,
         primaryKey:true,
         autoIncrement: true,
     },
     name:{
-        type:DataTypes.STRING,
+        type:Sequelize.STRING,
         allowNull:false,
     },
     lifetime:{
-        type:DataTypes.BOOLEAN,
+        type:Sequelize.BOOLEAN,
         allowNull:false,
     },
     

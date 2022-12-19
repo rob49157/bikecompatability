@@ -1,26 +1,28 @@
-const { Model, DataTypes} = require('sequilize')
-const sequalize= require('../config/connections')
 
 
-class brakeset extends Model {}
+const Sequelize = require('sequelize')
+const sequelize= require('../config/connections')
 
-brakeset.init({
+
+
+
+const brakeset= sequelize.define("brakeset",{
     id:{
-        type:DataTypes.INTERGER,
+        type:Sequelize.INTEGER,
         allowNull: false,
         primaryKey:true,
         autoIncrement: true,
     },
     name:{
-        type:DataTypes.STRING,
+        type:Sequelize.STRING,
         allowNull:false,
     },
     size:{
-        type:DataTypes.INTERGER,
+        type:Sequelize.INTEGER,
         allowNull:true,
     },
     price:{
-        type:DataTypes.INTERGER,
+        type:Sequelize.INTEGER,
         allowNull:false
     }
 })
