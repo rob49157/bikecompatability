@@ -4,6 +4,7 @@ const express = require('express')
 const app = express()
 
 const sequelize =require('./config/connections')
+
 const BottomBracket = require('./models/BottomBracket')
 const brakeset = require('./models/brakeset')
 const brand = require('./models/brand')
@@ -38,9 +39,37 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(`Now listening on ${PORT} `));
+    initial();
   });
 
+function initial(){
 
+    let bottomBrackets = [
+        {
+            name: "bottomBracket1",
+            size: 1,
+            price: 2.3
+        },
+        {
+          name: "bottomBracket2",
+          size: 1,
+          price: 23131.25
+        }
+    ]
+  
+
+
+    // Init data -> save to MySQL
+    const bottomBracket = BottomBracket;
+    const brand = Brand;
+
+
+    for (let i = 0; i < bottomBrackets.length; i++) {
+      bottomBracket.create(bottomBrackets[i]);
+    }
+   
+
+}
 
 
 
