@@ -5,21 +5,21 @@ const sequelize= require('../config/connections')
 const  BottomBracket = sequelize.define("BottomBracket", {
     id:{
         type:Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         primaryKey:true,
         autoIncrement: true,
     },
     name:{
         type:Sequelize.STRING,
-        allowNull:false,
+        allowNull:true,
     },
     size:{
-        type:Sequelize.INTEGER,
-        allowNull:false,
+        type:Sequelize.STRING,
+        allowNull:true,
     },
     price:{
         type:Sequelize.INTEGER,
-        allowNull:false
+        allowNull:true
     }
 })  
 

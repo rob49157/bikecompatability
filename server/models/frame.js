@@ -4,7 +4,7 @@ const sequelize= require('../config/connections')
 
 
 
-const brand = sequelize.define("brand",{
+const Frame = sequelize.define("Frame",{
     id:{
         type:Sequelize.INTEGER,
         allowNull: false,
@@ -15,9 +15,9 @@ const brand = sequelize.define("brand",{
         type:Sequelize.STRING,
         allowNull:false,
     },
-    size:{
-        type:Sequelize.INTEGER,
-        allowNull:false,
+    model:{
+        type:Sequelize.STRING,
+        allowNull:true,
     },
     price:{
         type:Sequelize.INTEGER,
@@ -25,4 +25,4 @@ const brand = sequelize.define("brand",{
     }
 })
 
-module.exports = brand
+module.exports = Frame

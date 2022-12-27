@@ -6,25 +6,25 @@ const sequelize= require('../config/connections')
 
 
 
-const brakeset= sequelize.define("brakeset",{
+const Brakeset= sequelize.define("brakeset",{
     id:{
         type:Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         primaryKey:true,
         autoIncrement: true,
     },
     name:{
         type:Sequelize.STRING,
-        allowNull:false,
+        allowNull:true,
     },
-    size:{
-        type:Sequelize.INTEGER,
+    model:{
+        type:Sequelize.STRING,
         allowNull:true,
     },
     price:{
         type:Sequelize.INTEGER,
-        allowNull:false
+        allowNull:true
     }
 })
 
-module.exports = brakeset
+module.exports = Brakeset

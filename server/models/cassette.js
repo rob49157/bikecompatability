@@ -4,7 +4,7 @@ const sequelize= require('../config/connections')
 
 
 
-const cassette = sequelize.define("cassette",{
+const Cassette = sequelize.define("cassette",{
     id:{
         type:Sequelize.INTEGER,
         allowNull: false,
@@ -15,8 +15,8 @@ const cassette = sequelize.define("cassette",{
         type:Sequelize.STRING,
         allowNull:false,
     },
-    size:{
-        type:Sequelize.INTEGER,
+    model:{
+        type:Sequelize.STRING,
         allowNull:true,
     },
     price:{
@@ -25,4 +25,4 @@ const cassette = sequelize.define("cassette",{
     }
 })
 
-module.exports = cassette
+module.exports = Cassette

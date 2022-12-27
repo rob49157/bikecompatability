@@ -6,10 +6,10 @@ const app = express()
 const sequelize =require('./config/connections')
 
 const BottomBracket = require('./models/BottomBracket')
-const brakeset = require('./models/brakeset')
-const brand = require('./models/brand')
-const cassette = require('./models/cassette')
-const chain = require('./models/chain')
+const Brakeset = require('./models/brakeset')
+const Frame = require('./models/frame')
+const Cassette = require('./models/cassette')
+const Chain = require('./models/chain')
 const chainring = require('./models/chainring')
 const crankset = require('./models/crankset')
 const fork = require('./models/fork')
@@ -45,28 +45,112 @@ sequelize.sync({ force: false }).then(() => {
 function initial(){
 
     let bottomBrackets = [
-        {
-            name: "bottomBracket1",
-            size: 1,
-            price: 2.3
+        {   
+            name: "Shimano XT ",
+            size: "BB-MT800",
+            price: 24.99
         },
         {
-          name: "bottomBracket2",
-          size: 1,
-          price: 23131.25
+          name: "CHRIS KING",
+          size: "24MM",
+          price: 178.00
         }
     ]
+
+    // let frames=[
+    //   {
+    //     id: 1,
+    //     name: "YETI",
+    //     model:" SB-140",
+    //     price: 4500
+
+    //   },
+    //   {
+    //     id: 2,
+    //     name: "Canyon",
+    //     model:"Spectral",
+    //     price: 1849
+
+    //   }
+
+    // ]
+
+    // let brakesets =[
+    //   {
+    //     id: 1,
+    //     name: "Shimano",
+    //     model:"XT",
+    //     price: 170
+    //   },
+    //   {
+    //     id: 2,
+    //     name: "Sram ",
+    //     model:"Code",
+    //     price: 120
+    //   }
+    // ]
+
+    // let cassettes = [
+    //   {
+    //     id: 1,
+    //     name: "Sram",
+    //     model:" XX1 Eagle",
+    //     price: 410
+
+    //   },
+    //   {
+    //     id: 2,
+    //     name: "Shimano",
+    //     model:"CS-5700",
+    //     price: 49
+    //   }
+    // ]
+
+    // let chains = [
+    //   {
+    //     id: 1,
+    //     name: "Shimano",
+    //     model:"XTR",
+    //     price: 53
+    //   },
+    //   {
+    //     id: 2,
+    //     name: "KMC",
+    //     model:"X12",
+    //     price: 70
+    //   }
+
+    //   ]
   
 
 
     // Init data -> save to MySQL
     const bottomBracket = BottomBracket;
-    const brand = Brand;
+    const frame = Frame;
+    const brakeset = Brakeset
+    const cassette = Cassette
+    const chain = Chain
 
+    // for (let i = 0; i < chains.length; i++){
+    //   chain.create(chains[i])
+    // }
+
+    // for (let i=0; i < cassettes.length; i++){
+    //   cassette.create(cassettes[i])
+    // }
 
     for (let i = 0; i < bottomBrackets.length; i++) {
       bottomBracket.create(bottomBrackets[i]);
+      // console.log(bottomBrackets[i])
     }
+
+    // for ( let i =0; i <frames.length; i++ ){
+    //   frame.create(frames[i])
+    // }
+    
+    // for ( let i =0 ; i < brakesets.length; i++ ){
+    //     brakeset.create(brakesets[i])
+    //   }
    
 
 }
