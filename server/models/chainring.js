@@ -4,7 +4,7 @@ const sequelize= require('../config/connections')
 
 
 
-const chainring = sequelize.define("chainring",{
+const Chainring = sequelize.define("chainring",{
     id:{
         type:Sequelize.INTEGER,
         allowNull: false,
@@ -15,14 +15,11 @@ const chainring = sequelize.define("chainring",{
         type:Sequelize.STRING,
         allowNull:false,
     },
-    teeth:{
-        type:Sequelize.INTEGER,
-        allowNull:false,
-    },
+   
     price:{
         type:Sequelize.INTEGER,
         allowNull:false
     }
 })
 
-module.exports = chainring
+module.exports = Chainring

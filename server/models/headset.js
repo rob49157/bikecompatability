@@ -4,7 +4,7 @@ const sequelize= require('../config/connections')
 
 
 
-const headset = sequelize.define("headset",{
+const Headset = sequelize.define("headset",{
     id:{
         type:Sequelize.INTEGER,
         allowNull: false,
@@ -15,8 +15,8 @@ const headset = sequelize.define("headset",{
         type:Sequelize.STRING,
         allowNull:false,
     },
-    size:{
-        type:Sequelize.INTEGER,
+    model:{
+        type:Sequelize.STRING,
         allowNull:false,
     },
     price:{
@@ -25,4 +25,4 @@ const headset = sequelize.define("headset",{
     }
 })
 
-module.exports = headset
+module.exports = Headset

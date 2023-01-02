@@ -4,7 +4,7 @@ const sequelize= require('../config/connections')
 
 
 
-const shifter = sequelize.define("shifter",{
+const Shifter = sequelize.define("shifter",{
     id:{
         type:Sequelize.INTEGER,
         allowNull: false,
@@ -15,14 +15,14 @@ const shifter = sequelize.define("shifter",{
         type:Sequelize.STRING,
         allowNull:false,
     },
-    gears:{
-        type:Sequelize.INTEGER,
-        allowNull:false,
-    },
+    // gears:{
+    //     type:Sequelize.INTEGER,
+    //     allowNull:false,
+    // },
     price:{
         type:Sequelize.INTEGER,
         allowNull:false
     }
 })
 
-module.exports = shifter
+module.exports = Shifter

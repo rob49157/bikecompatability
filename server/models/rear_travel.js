@@ -2,7 +2,7 @@ const Sequelize = require('sequelize')
 const sequelize= require('../config/connections')
 
 
-const rear_travel = sequelize.define("rear_travel",{
+const Shock = sequelize.define("rear_travel",{
   id: {
     type: Sequelize.INTEGER,
     allowNull: false,
@@ -14,7 +14,7 @@ const rear_travel = sequelize.define("rear_travel",{
     allowNull: false,
   },
   travel: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     allowNull: false,
   },
   price: {
@@ -23,4 +23,4 @@ const rear_travel = sequelize.define("rear_travel",{
   },
 });
 
-module.exports = rear_travel;
+module.exports = Shock;

@@ -4,7 +4,7 @@ const sequelize= require('../config/connections')
 
 
 
-const handlebar = sequelize.define("handlebar",{
+const Handlebar = sequelize.define("handlebar",{
     id:{
         type:Sequelize.INTEGER,
         allowNull: false,
@@ -15,8 +15,9 @@ const handlebar = sequelize.define("handlebar",{
         type:Sequelize.STRING,
         allowNull:false,
     },
-    size:{
-        type:Sequelize.INTEGER,
+    
+    model:{
+        type:Sequelize.STRING,
         allowNull:false,
     },
     price:{
@@ -25,4 +26,4 @@ const handlebar = sequelize.define("handlebar",{
     }
 })
 
-module.exports = handlebar
+module.exports = Handlebar

@@ -4,7 +4,7 @@ const sequelize= require('../config/connections')
 
 
 
-const hubs =sequelize.define("hubs",{
+const Hubs =sequelize.define("hubs",{
     id:{
         type:Sequelize.INTEGER,
         allowNull: false,
@@ -15,8 +15,8 @@ const hubs =sequelize.define("hubs",{
         type:Sequelize.STRING,
         allowNull:false,
     },
-    size:{
-        type:Sequelize.INTEGER,
+    model:{
+        type:Sequelize.STRING,
         allowNull:false,
     },
     price:{
@@ -25,4 +25,4 @@ const hubs =sequelize.define("hubs",{
     }
 })
 
-module.exports = hubs
+module.exports = Hubs

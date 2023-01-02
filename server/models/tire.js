@@ -3,7 +3,7 @@ const sequelize= require('../config/connections')
 
 
 
-const tire= sequelize.define("tire",{
+const Tire= sequelize.define("tire",{
     id:{
         type:Sequelize.INTEGER,
         allowNull: false,
@@ -14,8 +14,12 @@ const tire= sequelize.define("tire",{
         type:Sequelize.STRING,
         allowNull:false,
     },
+    model:{
+        type:Sequelize.STRING,
+        allowNull:false
+    },
     size:{
-        type:Sequelize.INTEGER,
+        type:Sequelize.STRING,
         allowNull:false,
     },
     price:{
@@ -24,4 +28,4 @@ const tire= sequelize.define("tire",{
     }
 })
 
-module.exports = tire
+module.exports = Tire

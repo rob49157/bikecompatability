@@ -4,7 +4,7 @@ const sequelize= require('../config/connections')
 
 
 
-const seatpost = sequelize.define("seatpost",{
+const Dropperpost = sequelize.define("seatpost",{
     id:{
         type:Sequelize.INTEGER,
         allowNull: false,
@@ -16,7 +16,7 @@ const seatpost = sequelize.define("seatpost",{
         allowNull:false,
     },
     travel:{
-        type:Sequelize.INTEGER,
+        type:Sequelize.STRING,
         allowNull:false,
     },
     price:{
@@ -25,4 +25,4 @@ const seatpost = sequelize.define("seatpost",{
     }
 })
 
-module.exports = seatpost
+module.exports = Dropperpost

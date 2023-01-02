@@ -4,7 +4,7 @@ const sequelize= require('../config/connections')
 
 
 
-const rotor = sequelize.define("rotor",{
+const Rotor = sequelize.define("rotor",{
     id:{
         type:Sequelize.INTEGER,
         allowNull: false,
@@ -16,7 +16,7 @@ const rotor = sequelize.define("rotor",{
         allowNull:false,
     },
     size:{
-        type:Sequelize.INTEGER,
+        type:Sequelize.STRING,
         allowNull:false,
     },
     price:{
@@ -25,4 +25,4 @@ const rotor = sequelize.define("rotor",{
     }
 })
 
-module.exports = rotor
+module.exports = Rotor

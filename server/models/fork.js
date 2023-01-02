@@ -4,7 +4,7 @@ const sequelize= require('../config/connections')
 
 
 
-const fork = sequelize.define("fork",{
+const Fork = sequelize.define("fork",{
     id:{
         type:Sequelize.INTEGER,
         allowNull: false,
@@ -15,12 +15,12 @@ const fork = sequelize.define("fork",{
         type:Sequelize.STRING,
         allowNull:false,
     },
-    size:{
-        type:Sequelize.INTEGER,
-        allowNull:false,
+    model:{
+        type:Sequelize.STRING,
+        allowNull:true,
     },
     travel:{
-        type:Sequelize.INTEGER,
+        type:Sequelize.STRING,
         allowNull:false,
     },
     price:{
@@ -29,4 +29,4 @@ const fork = sequelize.define("fork",{
     }
 })
 
-module.exports = fork
+module.exports = Fork

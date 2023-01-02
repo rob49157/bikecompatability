@@ -4,7 +4,7 @@ const sequelize= require('../config/connections')
 
 
 
-const saddle = sequelize.define("saddle",{
+const Saddle = sequelize.define("saddle",{
     id:{
         type:Sequelize.INTEGER,
         allowNull: false,
@@ -15,14 +15,14 @@ const saddle = sequelize.define("saddle",{
         type:Sequelize.STRING,
         allowNull:false,
     },
-    size:{
-        type:Sequelize.INTEGER,
-        allowNull:false,
-    },
+    // size:{
+    //     type:Sequelize.STRING,
+    //     allowNull:false,
+    // },
     price:{
         type:Sequelize.INTEGER,
         allowNull:false
     }
 })
 
-module.exports = saddle
+module.exports = Saddle

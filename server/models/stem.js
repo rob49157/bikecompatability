@@ -16,7 +16,7 @@ const stem = sequelize.define("stem",{
         allowNull:false,
     },
     size:{
-        type:Sequelize.INTEGER,
+        type:Sequelize.STRING,
         allowNull:false,
     },
     price:{

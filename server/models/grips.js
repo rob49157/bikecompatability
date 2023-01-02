@@ -4,7 +4,7 @@ const sequelize= require('../config/connections')
 
 
 
-const grips = sequelize.define("grips",{
+const Grips = sequelize.define("grips",{
     id:{
         type:Sequelize.INTEGER,
         allowNull: false,
@@ -22,4 +22,4 @@ const grips = sequelize.define("grips",{
     }
 })
 
-module.exports = grips
+module.exports = Grips
