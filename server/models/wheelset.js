@@ -4,7 +4,7 @@ const sequelize= require('../config/connections')
 
 
 
-const wheelset = sequelize.define("wheelset",{
+const Wheelset = sequelize.define("wheelset",{
     id:{
         type:Sequelize.INTEGER,
         allowNull: false,
@@ -15,8 +15,12 @@ const wheelset = sequelize.define("wheelset",{
         type:Sequelize.STRING,
         allowNull:false,
     },
+    model:{
+        type:Sequelize.STRING,
+        allowNull:false,
+    },
     size:{
-        type:Sequelize.INTEGER,
+        type:Sequelize.STRING,
         allowNull:false,
     },
     price:{
@@ -25,4 +29,4 @@ const wheelset = sequelize.define("wheelset",{
     }
 })
 
-module.exports = wheelset
+module.exports = Wheelset

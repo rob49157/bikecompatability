@@ -264,18 +264,7 @@ function initial() {
     },
   ];
 
-  let Tire = [
-    {
-      name: " Maxxis",
-      size:"40mm",
-      price: 31,
-    },
-    {
-      name: "PNW",
-      size: "31.8mm",
-      price: 40,
-    },
-  ];
+
   let tires = [
     {
       name: "Maxxis",
@@ -289,6 +278,21 @@ function initial() {
       size: "29",
       price: 60,
     },
+  ];
+
+  let wheelsets = [
+    {
+      name: "Industry Nine",
+      model:"Enduro S Hydra",
+      size:"27.5",
+      price: 1450,
+    },
+    {
+      name: "Enve",
+      model:"M70 Thirty HV",
+      size: "29",
+      price: 549,
+    }
   ];
   // Init data -> save to MySQL
   const bottomBracket = BottomBracket;
@@ -307,11 +311,16 @@ function initial() {
   const saddle = Saddle;
   const dropperpost = Dropperpost;
   const tire = Tire;
+  const wheelset = Wheelset
+
+
+    // for( let i = 0; i < wheelsets.length; i++){
+    //   wheelset.create(wheelsets[i])
+    // }
   
-  
-   for( let i = 0; i < tires.length; i++){
-     tire.create(tires[i])
-   }
+  //  for( let i = 0; i < tires.length; i++){
+  //   tire.create(tires[i])
+  //  }
 
   // for( let i = 0; i < stems.length; i++){
   //   Stem.create(stems[i])
