@@ -1,7 +1,8 @@
 const {Sequelize, DataTypes}  = require('sequelize');
 require('dotenv').config();
-const express = require('express');
+const express = require('express')();
 const bodyParser = require('body-parser');
+
 
   const sequelize = new Sequelize(
   
@@ -14,6 +15,17 @@ const bodyParser = require('body-parser');
       port: 3306
     }
   );
+
+  // express.GET("/", (req,res)=>{
+  //   const sqlInsert = "INSERT INTO Brakeset (name, model, price) VALUE ('Mogura', 'stf');"
+  //   console.log("fsadfasdf")
+  //   sequelize.query(sqlInsert, (err, result)=>{
+    
+  //     res.send("Hello roberto")
+      
+  //   })
+    
+  // })
 
 //  sequelize.authenticate().then(() => {
 //    console.log('Connection has been established successfully.');

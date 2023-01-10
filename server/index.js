@@ -1,5 +1,6 @@
 const path = require("path");
 const express = require("express");
+const router = require('express').Router();
 
 const app = express();
 
@@ -33,12 +34,55 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, "public")));
 
+
+
 // app.use(routes)
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`Now listening on ${PORT} `));
-  initial();
+  //  initial();
 });
+
+
+//  APIROUTES( GET )
+
+ app.get("/", async (req, res)=>{
+  //Brake
+  let brake1 = await Brakeset.findAll({}) 
+ 
+  for( let i in brake1){
+  let brake2 = brake1[i]
+  console.log(brake2.name)
+ }
+
+ //BottomBracket
+ let BB1= await BottomBracket.findAll({})
+
+ for( let i in BB1){
+  let BB2 = BB1[i]
+  console.log(BB2.name)
+ }
+
+ // Cassette
+
+ let Cassete1= await Cassette.findAll({})
+
+ for( let i in Cassete1){
+  let Cassete2 = Cassete1[i]
+  console.log(Cassete2.name)
+ }
+
+
+ 
+  
+  
+  
+ })
+
+
+
+
+
 
 function initial() {
   let bottomBrackets = [
