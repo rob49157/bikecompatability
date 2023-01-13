@@ -1,10 +1,11 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Menu from "./components/Dropdown"
 
 function App() {
   return (
     <div className="App">
- hello
+      <Menu/>
     </div>
   );
 }
