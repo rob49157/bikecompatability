@@ -1,6 +1,6 @@
 const path = require("path");
 const express = require("express");
-const router = require("express").Router();
+
 
 const app = express();
 
@@ -37,13 +37,13 @@ app.use(express.static(path.join(__dirname, "public")));
 // app.use(routes)
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`Now listening on ${PORT} `));
+  app.listen(PORT, () => console.log(`http://localhost:${PORT} `));
     // initial();
 });
 
 //  APIROUTES( GET )
 
-app.get("/", async (req, res) => {
+app.get("/Home", async (req, res) => {
   //Brake
   let brake1 = await Brakeset.findAll({});
 

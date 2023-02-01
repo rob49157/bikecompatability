@@ -1,8 +1,17 @@
-import React from 'react'
+import React, {useState,useEffect}from 'react'
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
+
 function Menu (){
+
+  const [ products, setProduct] = useState('')
+
+  // handlechange
+  const handleChange = (e) => {
+
+
+  }
     
     return (
         <DropdownButton id="dropdown-item-button" title="Dropdown button">
@@ -11,7 +20,7 @@ function Menu (){
           <Dropdown.Item as="button">Another action</Dropdown.Item>
           <Dropdown.Item as="button">Something else</Dropdown.Item>
         </DropdownButton>
-      ); 
+      );  
     
 
 }

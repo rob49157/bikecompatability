@@ -16,21 +16,6 @@ const bodyParser = require('body-parser');
     }
   );
 
-  // express.GET("/", (req,res)=>{
-  //   const sqlInsert = "INSERT INTO Brakeset (name, model, price) VALUE ('Mogura', 'stf');"
-  //   console.log("fsadfasdf")
-  //   sequelize.query(sqlInsert, (err, result)=>{
-    
-  //     res.send("Hello roberto")
-      
-  //   })
-    
-  // })
 
-//  sequelize.authenticate().then(() => {
-//    console.log('Connection has been established successfully.');
-// }).catch((error) => {
-//    console.error('Unable to connect to the database: ', error);
-// });
 
 module.exports = sequelize;
