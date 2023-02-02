@@ -1,6 +1,6 @@
 const path = require("path");
 const express = require("express");
-
+const router = require("express").Router();
 
 const app = express();
 
@@ -37,184 +37,37 @@ app.use(express.static(path.join(__dirname, "public")));
 // app.use(routes)
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`http://localhost:${PORT} `));
-    // initial();
+  app.listen(PORT, () => console.log(`Now listening on ${PORT} `));
+    initial();
+   
 });
 
 //  APIROUTES( GET )
 
-app.get("/Home", async (req, res) => {
-  //Brake
-  let brake1 = await Brakeset.findAll({});
-
-  for (let i in brake1) {
-    let brake2 = brake1[i];
-    console.log(brake2.name , brake2.model, "$",brake2.price);
-  }
-
-  //BottomBracket
-  let BB1 = await BottomBracket.findAll({});
-
-  for (let i in BB1) {
-    let BB2 = BB1[i];
-    console.log(BB2.name , BB2.model, "$",BB2.price);
-  }
-
-  // Cassette
-
-  let Cassete1 = await Cassette.findAll({});
-
-  for (let i in Cassete1) {
-    let Cassete2 = Cassete1[i];
-    console.log(Cassete2.name ,Cassete2.model, "$",Cassete2.price);
-  }
-
-  //chain
-  let Chain1 = await Chain.findAll({});
-
-  for (let i in Chain1) {
-    let Chain2 = Chain1[i];
-    console.log(Chain2.name, Chain2.model, "$",Chain2.price);
-  }
-
-  // Chainring
-
-  let Chainring1 = await Chainring.findAll({});
-
-  for (let i in Chainring1) {
-    let Chainring2 = Chainring1[i];
-    console.log(Chainring2.name, Chainring2.model, "$",Chainring2.price);
-  }
-
-  //fork
-
-  let Fork1 = await Fork.findAll({});
-
-  for (let i in Fork1) {
-    let Fork2 = Fork1[i];
-    console.log(Fork2.name, Fork2.model, "$",Fork2.price);
-  }
-
-  //frame
-
-  let Frame1 = await Frame.findAll({});
-
-  for (let i in Frame1) {
-    let Frame2 = Frame1[i];
-    console.log(Frame2.name, Frame2.model, "$",Frame2.price);
-  }
-
-  //grips
-
-  let Grips1 = await Grips.findAll({});
-
-  for (let i in Grips1) {
-    let Grips2 = Grips1[i];
-    console.log(Grips2.name, Grips2.model, "$",Grips2.price);
-  }
-
-  //handlebar
-
-  let Handlebar1 = await Handlebar.findAll({});
-
-  for (let i in Handlebar1) {
-    let Handlebar2 = Handlebar1[i];
-    console.log(Handlebar2.name, Handlebar2.model, "$",Handlebar2.price);
-  }
-
-  //headset
-
-  let Headset1 = await Headset.findAll({});
-
-  for (let i in Headset1) {
-    let Headset2 = Headset1[i];
-    console.log(Headset2.name, Headset2.model, "$",Headset2.price);
-  }
-
-  //hubs
-
+app.get("/", async (req, res) => {
   
-  let Hub1 = await Hub.findAll({});
-
-  for (let i in Hub1) {
-    let Hub2 = Hub1[i];
-    console.log(Hub2.name, Hub2.model, "$",Hub2.price);
-  }
-
-  //Rear Shock
-
-  let Shock1 = await Shock.findAll({});
-
-  for (let i in Shock1) {
-    let Shock2 = Shock1[i];
-    console.log(Shock2.name, Shock2.model, "$",Shock2.price);
-  }
-
-  //rotor
-
-  let Rotor1 = await Rotor.findAll({});
-
-  for (let i in Rotor1) {
-    let Rotor2 = Rotor1[i];
-    console.log(Rotor2.name, Rotor2.model, "$",Rotor2.price);
-  }
-
-  // Saddle
-
-  let Saddle1 = await Saddle.findAll({});
-
-  for (let i in Saddle1) {
-    let Saddle2 = Saddle1[i];
-    console.log(Saddle2.name, Saddle2.model, "$",Saddle2.price);
-  }
-
-  //Seatpost
-
-  let Dropperpost1 = await Dropperpost.findAll({});
-
-  for (let i in Dropperpost1) {
-    let Dropperpost2 = Dropperpost1[i];
-    console.log(Dropperpost2.name, Dropperpost2.model, "$",Dropperpost2.price);
-  }
-
-  //Shifter
-
-  let Shifter1 = await Shifter.findAll({});
-
-  for (let i in Shifter1) {
-    let Shifter2 = Shifter1[i];
-    console.log(Shifter2.name, Shifter2.model, "$",Shifter2.price);
-  }
-
-  //Stem
-
-  let Stem1 = await Stem.findAll({});
-
-  for (let i in Stem1) {
-    let Stem2 = Stem1[i];
-    console.log(Stem2.name, Stem2.model, "$",Stem2.price);
-  }
-
-  //tires
-
-  let Tire1 = await Tire.findAll({});
-
-  for (let i in Tire1) {
-    let Tire2 = Tire1[i];
-    console.log(Tire2.name, Tire2.model, "$",Tire2.price);
-  }
-
-  //wheelset
-
-  let Wheelset1 = await Wheelset.findAll({});
-
-  for (let i in Wheelset1) {
-    let Wheelset2 = Wheelset1[i];
-    console.log(Wheelset2.name, Wheelset2.model, "$",Wheelset2.price);
-  }
-
-
-
+  let allBrakes = await Brakeset.findAll({});
+  let allBottomBrackets = await BottomBracket.findAll();
+  let allCassetes = await Cassette.findAll()
+  let allChains = await Chain.findAll()
+  let allChainrings = await Chainring.findAll()
+  let allForks =await Fork.findAll()
+  let allFrames =await Frame.findAll()
+  let allGrips =await Grips.findAll()
+  let allHandlebars =await Handlebar.findAll()
+  let allHeadsets =await Headset.findAll()
+  let allHubs =await Hub.findAll()
+  let allShocks =await Shock.findAll()
+  let allRotors =await Rotor.findAll()
+  let allSaddles =await Saddle.findAll()
+  let allDropperposts =await Dropperpost.findAll()
+  let allShifters =await Shifter.findAll()
+  let allStems =await Stem.findAll()
+  let allTires =await Tire.findAll()
+  let allWheelsets =await Wheelset.findAll()
+  res.send({brakeSets: allBrakes, bottomBracket: allBottomBrackets, cassette: allCassetes, chain: allChains, chainring: allChainrings,
+            fork: allForks, frame: allFrames, grip: allGrips, handlebar: allHandlebars, headset: allHeadsets, hub: allHubs, shock: allShocks,
+            rotor: allRotors, saddle: allSaddles, dropperpost: allDropperposts, shifters:allShifters, stems:allStems, tires:allTires,wheelsets:allWheelsets})
 });
 
 
