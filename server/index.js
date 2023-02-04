@@ -37,41 +37,224 @@ app.use(express.static(path.join(__dirname, "public")));
 // app.use(routes)
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`Now listening on ${PORT} `));
-    initial();
-   
+  app.listen(PORT, () => console.log(`http://localhost:${PORT} `));
+  initial();
+});
+
+// middleware... CORS AUTH
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "Content-Type",
+    "Authorization"
+  );
+  next();
 });
 
 //  APIROUTES( GET )
+function brakes() {
+  app.get("/brakes", async (req, res) => {
+    let allBrakes = await Brakeset.findAll({});
+    res.send({ brakeSets: allBrakes });
+  });
+}
 
-app.get("/", async (req, res) => {
-  
-  let allBrakes = await Brakeset.findAll({});
-  let allBottomBrackets = await BottomBracket.findAll();
-  let allCassetes = await Cassette.findAll()
-  let allChains = await Chain.findAll()
-  let allChainrings = await Chainring.findAll()
-  let allForks =await Fork.findAll()
-  let allFrames =await Frame.findAll()
-  let allGrips =await Grips.findAll()
-  let allHandlebars =await Handlebar.findAll()
-  let allHeadsets =await Headset.findAll()
-  let allHubs =await Hub.findAll()
-  let allShocks =await Shock.findAll()
-  let allRotors =await Rotor.findAll()
-  let allSaddles =await Saddle.findAll()
-  let allDropperposts =await Dropperpost.findAll()
-  let allShifters =await Shifter.findAll()
-  let allStems =await Stem.findAll()
-  let allTires =await Tire.findAll()
-  let allWheelsets =await Wheelset.findAll()
-  res.send({brakeSets: allBrakes, bottomBracket: allBottomBrackets, cassette: allCassetes, chain: allChains, chainring: allChainrings,
-            fork: allForks, frame: allFrames, grip: allGrips, handlebar: allHandlebars, headset: allHeadsets, hub: allHubs, shock: allShocks,
-            rotor: allRotors, saddle: allSaddles, dropperpost: allDropperposts, shifters:allShifters, stems:allStems, tires:allTires,wheelsets:allWheelsets})
-});
+function bottomBracket() {
+  app.get("/bottomBracket", async (req, res) => {
+    let allBottomBrackets = await BottomBracket.findAll();
+    res.send({ bottomBracket: allBottomBrackets });
+  });
+}
+
+function cassette() {
+  app.get("/cassette/dasdasd", async (req, res) => {
+    let allCassetes = await Cassette.findAll();
+    res.send({ cassette: allCassetes });
+  });
+}
+
+function chain() {
+  app.get("/chain", async (req, res) => {
+    let allChains = await Chain.findAll();
+    res.send({ chain: allChains});
+  });
+}
+
+function chainring() {
+  app.get("/chainring", async (req, res) => {
+    let allChainrings = await Chainring.findAll();
+    res.send({ chainring: allChainrings});
+  });
+}
+
+function fork() {
+  app.get("/fork", async (req, res) => {
+    let allForks = await Fork.findAll();
+    res.send({ fork: allForks});
+  });
+}
+
+function frame() {
+  app.get("/frame", async (req, res) => {
+    let allFrames = await Frame.findAll();
+    res.send({frame: allFrames});
+  });
+}
+
+function grip() {
+  app.get("/grip", async (req, res) => {
+    let allGrips = await Grips.findAll();
+    res.send({grip: allGrips});
+  });
+}
+
+function handlebar() {
+  app.get("/handlebar", async (req, res) => {
+    let allHandlebars = await Handlebar.findAll();
+    res.send({handlebar: allHandlebars});
+  });
+}
+
+function headset() {
+  app.get("/headset", async (req, res) => {
+    let allHeadsets = await Headset.findAll();
+    res.send({headset: allHeadsets});
+  });
+}
+
+function hub() {
+  app.get("/hub", async (req, res) => {
+    let allHubs = await Hub.findAll();
+    res.send({hub: allHubs});
+  });
+}
+
+function shock() {
+  app.get("/shock", async (req, res) => {
+    let allShocks = await Shock.findAll();
+    res.send({shock: allShocks});
+  });
+}
+
+function rotor() {
+  app.get("/rotor", async (req, res) => {
+    let allRotors = await Rotor.findAll();
+    res.send({rotor: allRotors});
+  });
+}
+
+function saddle() {
+  app.get("/saddle", async (req, res) => {
+    let allSaddles = await Saddle.findAll();
+    res.send({saddle: allSaddles});
+  });
+}
+
+function dropperpost() {
+  app.get("/dropperpost", async (req, res) => {
+    let allDropperposts = await Dropperpost.findAll();
+    res.send({dropperpost: allDropperposts});
+  });
+}
+
+function shifter() {
+  app.get("/shifter", async (req,res)=>{
+    let allShifters = await Shifter.findAll();
+    res.send({shifters: allShifters})
+  })
+}
+
+function stem(){
+  app.get("/stem", async (req,res)=> {
+    let allStems = await Stem.findAll();
+    res.send({stems: allStems})
+  })
+}
+
+function tire(){
+  app.get("/tire", async (req,res)=> {
+    let allTires = await Tire.findAll();
+    res.send({tires: allTires})
+  })
+}
+
+function wheelset(){
+  app.get("/wheelset", async (req,res)=> {
+    let allWheelsets = await Wheelset.findAll();
+    res.send({wheelsets: allWheelsets})
+  })
+}
 
 
 
+brakes();
+bottomBracket();
+cassette();
+chain();
+chainring();
+fork();
+frame();
+grip();
+handlebar();
+headset();
+hub();
+shock(); 
+rotor();
+saddle();
+dropperpost();
+shifter();
+stem();
+tire();
+wheelset();
+
+
+
+// app.get("/", async (req, res) => {
+//   let allBrakes = await Brakeset.findAll({});
+
+//   let allBottomBrackets = await BottomBracket.findAll();
+//   let allCassetes = await Cassette.findAll();
+//   let allChains = await Chain.findAll();
+//   let allChainrings = await Chainring.findAll();
+//   let allForks = await Fork.findAll();
+//   let allFrames = await Frame.findAll();
+//   let allGrips = await Grips.findAll();
+//   let allHandlebars = await Handlebar.findAll();
+//   let allHeadsets = await Headset.findAll();
+//   let allHubs = await Hub.findAll();
+//   let allShocks = await Shock.findAll();
+//   let allRotors = await Rotor.findAll();
+//   let allSaddles = await Saddle.findAll();
+//   let allDropperposts = await Dropperpost.findAll();
+//   let allShifters = await Shifter.findAll();
+//   let allStems = await Stem.findAll();
+//   let allTires = await Tire.findAll();
+//   let allWheelsets = await Wheelset.findAll();
+
+//   res.send({
+//     brakeSets: allBrakes,
+//     bottomBracket: allBottomBrackets,
+//     cassette: allCassetes,
+//     chain: allChains,
+//     chainring: allChainrings,
+//     fork: allForks,
+//     frame: allFrames,
+//     grip: allGrips,
+//     handlebar: allHandlebars,
+//     headset: allHeadsets,
+//     hub: allHubs,
+//     shock: allShocks,
+//     rotor: allRotors,
+//     saddle: allSaddles,
+//     dropperpost: allDropperposts,
+//     shifters: allShifters,
+//     stems: allStems,
+//     tires: allTires,
+//     wheelsets: allWheelsets,
+//   });
+// });
 
 function initial() {
   let bottomBrackets = [
