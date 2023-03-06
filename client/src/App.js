@@ -1,12 +1,12 @@
 
 import './App.css';
 // import Brakecomponent from "./components/brakescomponent"
-import Dropdownmemu from "./pages/dropdown"
+import Options from "./pages/Options"
 
 function App() {
   return (
     <div className="App">
-      <Dropdownmemu/>
+      <Options/>
     </div>
   );
 }
