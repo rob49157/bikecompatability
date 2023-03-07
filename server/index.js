@@ -69,7 +69,7 @@ function bottomBracket() {
 }
 
 function cassette() {
-  app.get("/cassette/dasdasd", async (req, res) => {
+  app.get("/cassette", async (req, res) => {
     let allCassetes = await Cassette.findAll();
     res.send({ cassette: allCassetes });
   });
