@@ -5,30 +5,24 @@ import BikeComponent from "../components/BikeComponent";
 import React from 'react';
 
 class Options extends React.Component {
-    state = {
-      bikeComponents: [
-        {apiComponent: 'brakes', bikePartComponent: 'brakeSets', name: "Brake Sets"},
-        {apiComponent: 'fork', bikePartComponent: 'fork', name: "Fork"}
-      ],
-      apiComponent: '',
-      bikePartComponent: ''
+  constructor(props) {
+    super(props);
+    this.handleChange.bind(this);
   }
 
   handleChange = (event) => {
-    this.setState(
+    this.props.setStateOfBikeParts(
       {
       apiComponent: event.target.value,
-      bikePartComponent: event.target.bikepartcomponent,
       })
   }
 
   render() {
     return (
     <div>
-        <BikeComponent apiComponent="brakes" bikePartComponent="brakeSets"/>
         <select onChange={this.handleChange}>
-            {this.state.bikeComponents.map(bikeComponent => (
-              <option value={bikeComponent.apiComponent} bikePartComponent={bikeComponent.bikePartComponent}>
+            {this.props.bikeComponents.map(bikeComponent => (
+              <option value={bikeComponent.apiComponent} key={bikeComponent.apiComponent}>
                 {bikeComponent.name}
               </option>
             ))}

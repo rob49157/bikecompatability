@@ -1,13 +1,12 @@
 
 import './App.css';
-// import Brakecomponent from "./components/brakescomponent"
-import Options from "./pages/Options"
-// import Brakescomponent from "./components/Brakescomponent";
+import BikeComponent from "./components/BikeComponent";
+import React from 'react';
 
 function App() {
-  return (
+    return (
     <div className="App">
-      <Options/>
+      <BikeComponent/>
     </div>
   );
 }
