@@ -1,24 +1,41 @@
 
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
-import Brakescomponent from "../components/Brakescomponent";
+import BikeComponent from "../components/BikeComponent";
+import React from 'react';
 
-function Options() {
-  
+class Options extends React.Component {
+    state = {
+      bikeComponents: [
+        {apiComponent: 'brakes', bikePartComponent: 'brakeSets', name: "Brake Sets"},
+        {apiComponent: 'fork', bikePartComponent: 'fork', name: "Fork"}
+      ],
+      apiComponent: '',
+      bikePartComponent: ''
+  }
 
- 
+  handleChange = (event) => {
+    this.setState(
+      {
+      apiComponent: event.target.value,
+      bikePartComponent: event.target.bikepartcomponent,
+      })
+  }
 
-
-  return (<div>
-    <Brakescomponent/>
-    <DropdownButton id="dropdown-basic-button" title="Dropdown button">
-      <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-      <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-      <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-    </DropdownButton>
-    </div>
-  );
-  
+  render() {
+    return (
+    <div>
+        <BikeComponent apiComponent="brakes" bikePartComponent="brakeSets"/>
+        <select onChange={this.handleChange}>
+            {this.state.bikeComponents.map(bikeComponent => (
+              <option value={bikeComponent.apiComponent} bikePartComponent={bikeComponent.bikePartComponent}>
+                {bikeComponent.name}
+              </option>
+            ))}
+          </select>
+        </div>
+      )
+  }
 }
 
 export default Options;
