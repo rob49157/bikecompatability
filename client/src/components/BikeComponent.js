@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Options from "../pages/Options"
 
+
+
+
 class BikeComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -15,23 +18,38 @@ class BikeComponent extends React.Component {
         ],
       bikeParts: []
       };
-  }
+  } 
 
-  fetchBikeParts = () => {
-    console.log(this.state.apiComponent)
-    fetch(`http://localhost:3001/${this.state.apiComponent}`)
-      .then((response) => response.json())
-      .then(bikePart => {
-        this.setState({bikeParts: bikePart[`${this.state.apiComponent}`]})
-      })
-  };
+ useEffect (()=>{
+  let Url=`http://localhost:3001/${this.state.apiComponent}`
 
-  setStateOfBikeParts = async (newApiComponent) => {
-    this.setState({
-      apiComponent: newApiComponent.apiComponent
-    })
-    fetchBikeParts()
-  };
+  const fetchBikeParts = async () =>{
+    try{
+      const response= await fetch(Url);
+      const json= await response.json();
+      console.log(json);
+    }catch(error)
+   }
+
+ },[])
+
+
+
+  //  fetchBikeParts = async () => {
+  //   console.log(this.state.apiComponent)
+  //   await fetch(`http://localhost:3001/${this.state.apiComponent}`)
+  //     .then((response) => response.json())
+  //     .then(bikePart => {
+  //       this.setState({bikeParts: bikePart[`${this.state.apiComponent}`]})
+  //     })
+  // };
+
+  // setStateOfBikeParts = async (newApiComponent) => {
+  //    this.setState({
+  //   apiComponent: newApiComponent.apiComponent
+  //   })
+  //   fetchBikeParts()
+  // };
 
   render() {
     return (
