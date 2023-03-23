@@ -57,7 +57,7 @@ app.use((req, res, next) => {
 function brakes() {
   app.get("/brakes", async (req, res) => {
     let allBrakes = await Brakeset.findAll({});
-    res.send({ brakeSets: allBrakes });
+    res.send({ brakes: allBrakes });
   });
 }
 
@@ -162,26 +162,26 @@ function dropperpost() {
 function shifter() {
   app.get("/shifter", async (req,res)=>{
     let allShifters = await Shifter.findAll();
-    res.send({shifters: allShifters})
+    res.send({shifter: allShifters})
   })
 }
 
 function stem(){
   app.get("/stem", async (req,res)=> {
     let allStems = await Stem.findAll();
-    res.send({stems: allStems})
+    res.send({stem: allStems})
   })
 }
 
 function tire(){
-  app.get("/tire", async (req,res)=> {
+  app.get("/tires", async (req,res)=> {
     let allTires = await Tire.findAll();
     res.send({tires: allTires})
   })
 }
 
 function wheelset(){
-  app.get("/wheelset", async (req,res)=> {
+  app.get("/wheelsets", async (req,res)=> {
     let allWheelsets = await Wheelset.findAll();
     res.send({wheelsets: allWheelsets})
   })

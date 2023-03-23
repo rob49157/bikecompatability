@@ -2,34 +2,30 @@
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import BikeComponent from "../components/BikeComponent";
-import React from 'react';
+import React, {useState} from 'react';
 
-class Options extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleChange.bind(this);
-  }
+function Options(props) {
+  const [allBikeComponents, setAllBikeComponents] = useState([
+            {apiComponent: 'brakes', name: "Brake Sets"},
+            {apiComponent: 'fork', name: "Fork"},
+            {apiComponent: 'frame', name: "Frame"},
+            ])
 
-  handleChange = (event) => {
-    this.props.setStateOfBikeParts(
-      {
-      apiComponent: event.target.value,
-      })
-  }
+  const setApiComponentHandler = (event) => {
+    props.onChangeOption(event.target.value);
+  };
 
-  render() {
-    return (
+  return (
     <div>
-        <select onChange={this.handleChange}>
-            {this.props.bikeComponents.map(bikeComponent => (
+      <select onChange={setApiComponentHandler}>
+             {allBikeComponents.map(bikeComponent => (
               <option value={bikeComponent.apiComponent} key={bikeComponent.apiComponent}>
                 {bikeComponent.name}
               </option>
             ))}
           </select>
-        </div>
-      )
-  }
+    </div>
+  )
 }
 
 export default Options;

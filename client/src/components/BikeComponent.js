@@ -1,49 +1,43 @@
+
 import React, { useState, useEffect } from "react";
+import axios from "axios"
 import Options from "../pages/Options"
+import Table from 'react-bootstrap/Table';
 
-class BikeComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.setStateOfBikeParts.bind(this);
-    this.fetchBikeParts.bind(this);
+function Brakes() {
 
-    this.state = {
-      apiComponent: '', 
-      bikeComponents: [
-        {apiComponent: 'brakes', name: "Brake Sets"},
-        {apiComponent: 'fork', name: "Fork"},
-        ],
-      bikeParts: []
-      };
-  }
+    const [apiComponent, setApiComponent] = useState("")
+    const [bikeparts, setbikeparts] =useState ([])
 
-  fetchBikeParts = () => {
-    console.log(this.state.apiComponent)
-    fetch(`http://localhost:3001/${this.state.apiComponent}`)
-      .then((response) => response.json())
-      .then(bikePart => {
-        this.setState({bikeParts: bikePart[`${this.state.apiComponent}`]})
-      })
-  };
+    const onChangeOption = (value) =>{
+        setApiComponent(value)
+    }
 
-  setStateOfBikeParts = async (newApiComponent) => {
-    this.setState({
-      apiComponent: newApiComponent.apiComponent
+    useEffect(() => {
+        fetch(`http://localhost:3001/${apiComponent}`)
+            .then(response => response.json())
+            .then(data => setbikeparts(data[apiComponent]))
     })
-    fetchBikeParts()
-  };
 
-  render() {
-    return (
-    <div>
-      <Options setStateOfBikeParts={this.setStateOfBikeParts} bikeComponents={this.state.bikeComponents}/>
-      <ul>
-         {Object.entries(this.state.bikeParts).map(([obj, part]) => (
-          <li key={part.id}>{part.name}</li>
-         ))}
-         </ul>
-    </div>
-    )
-  }
+     return (
+     <div>
+       <Options onChangeOption={onChangeOption}/>
+       <Table>
+            <thead>
+                <tr>
+                </tr>
+            </thead>
+            <tbody>
+                {Object.entries(bikeparts).map(([obj, part]) => (
+                    <tr>
+                        <td>{part.name}</td>
+                        <td>+ Add</td>
+                    </tr>
+                ))}
+            </tbody>
+        </Table>
+     </div>
+     )
 }
-export default BikeComponent
+
+export default Brakes
