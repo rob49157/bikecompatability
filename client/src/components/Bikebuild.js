@@ -5,7 +5,7 @@ import Options from "../pages/Options"
 import Button from 'react-bootstrap/Button';
 
 function Bikebuild(props) {
-    const [ bikeBuild, setbikeBuild] = useState ({ "fork": "", "brakes": "", "frame":""})
+    const [ bikeBuild, setbikeBuild] = useState ({ "fork": "", "brakes": "", "frame":"","bottomBracket":"","cassette":"","chain":"","chainring":"","grip":"","handlebar":"","hub":"","shock":"","rotor":"","saddle":"","dropperpost":"","shifter":"","stem":"","tires":"","wheelsets":"",})
 
 useEffect(() => {
   const bike = {...bikeBuild}
@@ -27,6 +27,7 @@ useEffect(() => {
                         <td>{s.name}</td>
                         <td>{s.model}</td>
                         <td>${s.price}</td>
+                        <Button variant="danger">Delete</Button>{' '}
                     </tr>
                 ))}
             </tbody>

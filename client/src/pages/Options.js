@@ -9,6 +9,23 @@ function Options(props) {
             {apiComponent: 'brakes', name: "Brake Sets"},
             {apiComponent: 'fork', name: "Fork"},
             {apiComponent: 'frame', name: "Frame"},
+            {apiComponent: 'bottomBracket', name: "bottom Bracket"},
+            {apiComponent: 'cassette', name: "Cassette"},
+            {apiComponent: 'chain', name: "Chain"},
+            {apiComponent: 'grip', name: "Grip"},
+            {apiComponent: 'handlebar', name: "Handlebar"},
+            {apiComponent: 'headset', name: "Headset"},
+            {apiComponent: 'hub', name: "Hub"},
+            {apiComponent: 'shock', name: "Shock"},
+            {apiComponent: 'rotor', name: "Rotor"},
+            {apiComponent: 'saddle', name: "Saddle"},
+            {apiComponent: 'dropperpost', name: "Dropperpost"},
+            {apiComponent: 'shifter', name: "Shifter"},
+            {apiComponent: 'stem', name: "Stem"},
+            {apiComponent: 'tires', name: "Tires"},
+            {apiComponent: 'wheelsets', name: "Wheelsets"},
+          
+            
             ])
 
   const setApiComponentHandler = (event) => {
