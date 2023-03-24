@@ -3,8 +3,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios"
 import Options from "../pages/Options"
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
 
-function Brakes() {
+function BikeComponent() {
 
     const [apiComponent, setApiComponent] = useState("")
     const [bikeparts, setbikeparts] =useState ([])
@@ -31,7 +32,9 @@ function Brakes() {
                 {Object.entries(bikeparts).map(([obj, part]) => (
                     <tr>
                         <td>{part.name}</td>
-                        <td>+ Add</td>
+                        <td>{part.model}</td>
+                        <td>${part.price}</td>
+                        <Button variant="outline-success"><td>+ Add</td></Button>
                     </tr>
                 ))}
             </tbody>
@@ -40,4 +43,4 @@ function Brakes() {
      )
 }
 
-export default Brakes
+export default BikeComponent

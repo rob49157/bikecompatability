@@ -21,6 +21,7 @@ function Options(props) {
              {allBikeComponents.map(bikeComponent => (
               <option value={bikeComponent.apiComponent} key={bikeComponent.apiComponent}>
                 {bikeComponent.name}
+                
               </option>
             ))}
           </select>
