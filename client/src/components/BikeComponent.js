@@ -4,11 +4,13 @@ import axios from "axios"
 import Options from "../pages/Options"
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
+import BikeBuild from "../components/Bikebuild"
 
-function BikeComponent() {
+function BikeComponent( ) {
 
     const [apiComponent, setApiComponent] = useState("")
     const [bikeparts, setbikeparts] =useState ([])
+    const [bikePart, setBikePart] = useState([])
 
     const onChangeOption = (value) =>{
         setApiComponent(value)
@@ -19,6 +21,10 @@ function BikeComponent() {
             .then(response => response.json())
             .then(data => setbikeparts(data[apiComponent]))
     })
+
+    function onAdd(bikePart) {
+        setBikePart(bikePart)
+    }
 
      return (
      <div>
@@ -34,11 +40,12 @@ function BikeComponent() {
                         <td>{part.name}</td>
                         <td>{part.model}</td>
                         <td>${part.price}</td>
-                        <Button variant="outline-success"><td>+ Add</td></Button>
+                        <Button variant="outline-success" onClick={() => onAdd(part)}><td>+ Add to Bike</td></Button>
                     </tr>
                 ))}
             </tbody>
         </Table>
+        <BikeBuild apiComponent={apiComponent} bikePart={bikePart}/>
      </div>
      )
 }
