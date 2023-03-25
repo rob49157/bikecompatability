@@ -5,6 +5,7 @@ import Options from "../pages/Options";
 import Button from "react-bootstrap/Button";
 
 function Bikebuild(props) {
+  const [items, setItems] = useState([])
   const [bikeBuild, setbikeBuild] = useState({
     fork: "",
     brakes: "",
@@ -32,23 +33,33 @@ function Bikebuild(props) {
 
 
 
-
+  // localStorage.setItem("key","value")
+  // const saved =  localStorage.getItem("bikebuild")
+  // const initialValue = JSON.parse(saved)
+  // return initialValue || ""
 
   useEffect(() => {
     const bike = { ...bikeBuild };
     bike[props.apiComponent] = props.bikePart;
     setbikeBuild(bike);
     
+    //local storage
+    
+    
     localStorage.setItem("bikebuild", JSON.stringify(bikeBuild))
-  });
+    const items = JSON.parse(localStorage.getItem("bikebuild"))
+    if(items){
+      setItems(bikeBuild)
+    }
+
+   
+  },);
 
 
    // local storage
-  // localStorage.setItem("key","value")
+ 
 
-  const saved =  localStorage.getItem("bikebuild")
-  const initialValue = JSON.parse(saved)
-  return initialValue || ""
+ 
   
   
   // pass bikeparts state to setbikebuild from bikecomponent
