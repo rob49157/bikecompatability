@@ -1,15 +1,15 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios"
-import Options from "../pages/Options"
+import Options from "./Options"
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import BikeBuild from "../components/Bikebuild"
 
 function BikeComponent( ) {
 
-    const [apiComponent, setApiComponent] = useState("")
-    const [bikeparts, setbikeparts] =useState ([])
+    const [apiComponent, setApiComponent] = useState()
+    const [bikeParts, setbikeParts] =useState ([])
     const [bikePart, setBikePart] = useState([])
 
     const onChangeOption = (value) =>{
@@ -19,8 +19,8 @@ function BikeComponent( ) {
     useEffect(() => {
         fetch(`http://localhost:3001/${apiComponent}`)
             .then(response => response.json())
-            .then(data => setbikeparts(data[apiComponent]))
-    })
+            .then(data => setbikeParts(data[apiComponent]))
+    }, [apiComponent])
 
     function onAdd(bikePart) {
         setBikePart(bikePart)
@@ -35,7 +35,7 @@ function BikeComponent( ) {
                 </tr>
             </thead>
             <tbody>
-                {Object.entries(bikeparts).map(([obj, part]) => (
+                {Object.entries(bikeParts).map(([obj, part]) => (
                     <tr>
                         <td>{part.name}</td>
                         <td>{part.model}</td>
