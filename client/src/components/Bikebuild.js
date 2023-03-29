@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import BikeComponent from "../components/BikeComponent";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 
@@ -35,7 +34,10 @@ function Bikebuild(props) {
   }, [props.apiComponent, props.bikePart]);
 
   function saveBikeBuild() {
-    const data = {'bottomBracketId': bikeBuild["bottomBracket"]["bottomBracketId"]}
+    const data = {
+      bottomBracketId: bikeBuild["bottomBracket"]["bottomBracketId"],
+    };
+    data["total"] = props.total;
     fetch("http://localhost:3001/bikeBuild", {
       method: "post",
       headers: {
@@ -43,22 +45,41 @@ function Bikebuild(props) {
       },
       body: JSON.stringify(data),
     });
+    window.location.reload();
   }
 
-  // pass bikeparts state to setbikebuild from bikecomponent
+  function removeBikeComponent(bikePartKey) {
+    const data = { ...bikeBuild };
+    data[bikePartKey] = "";
+    setBikeBuild(data);
+  }
+
   return (
     <div>
       <Table>
         <thead>
-          <tr></tr>
+          <tr>
+            <td>Bike Component</td>
+            <td>Name</td>
+            <td>Model</td>
+            <td>Price</td>
+          </tr>
         </thead>
         <tbody>
           {Object.entries(bikeBuild).map(([obj, s]) => (
             <tr>
+              <td>{obj}</td>
               <td>{s.name}</td>
               <td>{s.model}</td>
               <td>${s.price}</td>
-              <Button variant="danger">Delete</Button>{" "}
+              <Button
+                variant="danger"
+                onClick={() => {
+                  removeBikeComponent(obj);
+                }}
+              >
+                Remove
+              </Button>
             </tr>
           ))}
         </tbody>

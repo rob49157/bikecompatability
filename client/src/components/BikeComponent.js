@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from "react";
-import axios from "axios"
 import Options from "./Options"
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
@@ -11,6 +10,7 @@ function BikeComponent( ) {
     const [apiComponent, setApiComponent] = useState()
     const [bikeParts, setbikeParts] =useState ([])
     const [bikePart, setBikePart] = useState([])
+    const [total, setTotal] = useState(0)
 
     const onChangeOption = (value) =>{
         setApiComponent(value)
@@ -24,6 +24,7 @@ function BikeComponent( ) {
 
     function onAdd(bikePart) {
         setBikePart(bikePart)
+        setTotal(bikePart.price + total)
     }
 
      return (
@@ -45,7 +46,8 @@ function BikeComponent( ) {
                 ))}
             </tbody>
         </Table>
-        <BikeBuild apiComponent={apiComponent} bikePart={bikePart}/>
+        Total: ${total}
+        <BikeBuild apiComponent={apiComponent} bikePart={bikePart} total={total}/>
      </div>
      )
 }
