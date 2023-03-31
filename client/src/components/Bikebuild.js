@@ -5,24 +5,26 @@ import Button from "react-bootstrap/Button";
 function Bikebuild(props) {
   const [bikeBuild, setBikeBuild] = useState(
     {
-      fork: "",
-      brakes: "",
-      frame: "",
       bottomBracket: "",
+      brakeset: "",
       cassette: "",
       chain: "",
       chainring: "",
+      crankset: "",
+      dropperpost: "",
+      fork: "",
+      frame: "",
       grip: "",
       handlebar: "",
+      headset: "",
       hub: "",
-      shock: "",
       rotor: "",
       saddle: "",
-      dropperpost: "",
       shifter: "",
+      shock: "",
       stem: "",
-      tires: "",
-      wheelsets: "",
+      tire: "",
+      wheelset: "",
     },
     []
   );
@@ -36,6 +38,25 @@ function Bikebuild(props) {
   function saveBikeBuild() {
     const data = {
       bottomBracketId: bikeBuild["bottomBracket"]["bottomBracketId"],
+      brakesetId: bikeBuild["brakeset"]["brakesetId"],
+      cassetteId: bikeBuild["cassette"]["cassetteId"],
+      chainId: bikeBuild["chain"]["chainId"],
+      chainringId: bikeBuild["chainring"]["chainringId"],
+      cranksetId: bikeBuild["crankset"]["cranksetId"],
+      forkId: bikeBuild["fork"]["forkId"],
+      frameId: bikeBuild["frame"]["frameId"],
+      gripsId: bikeBuild["grip"]["gripsId"],
+      handlebarId: bikeBuild["handlebar"]["handlebarId"],
+      headsetId: bikeBuild["headset"]["headsetId"],
+      hubsId: bikeBuild["hub"]["hubsId"],
+      rotorId: bikeBuild["rotor"]["rotorId"],
+      saddleId: bikeBuild["saddle"]["saddleId"],
+      dropperpostId: bikeBuild["dropperpost"]["dropperPostId"],
+      shifterId: bikeBuild["shifter"]["shifterId"],
+      shockId: bikeBuild["shock"]["shockId"],
+      stemId: bikeBuild["stem"]["stemId"],
+      tireId: bikeBuild["tire"]["tireId"],
+      wheelsetId: bikeBuild["wheelset"]["wheelsetId"],
     };
     data["total"] = props.total;
     fetch("http://localhost:3001/bikeBuild", {
@@ -44,8 +65,14 @@ function Bikebuild(props) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    });
-    window.location.reload();
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          alert("Bike successfully created");
+          window.location.href = "/bikes";
+        } else Promise.reject();
+      })
+      .catch((err) => alert("Something went wrong"));
   }
 
   function removeBikeComponent(bikePartKey) {

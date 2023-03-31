@@ -5,7 +5,7 @@ const sequelize= require('../config/connections')
 
 
 const Wheelset = sequelize.define("wheelset",{
-    id:{
+    wheelsetId:{
         type:Sequelize.INTEGER,
         allowNull: false,
         primaryKey:true,

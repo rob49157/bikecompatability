@@ -5,7 +5,7 @@ const sequelize= require('../config/connections')
 
 
 const Cassette = sequelize.define("cassette",{
-    id:{
+    casseteId:{
         type:Sequelize.INTEGER,
         allowNull: false,
         primaryKey:true,

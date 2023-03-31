@@ -1,6 +1,7 @@
 import "./App.css";
 import BikeComponent from "./components/BikeComponent";
 import BikeBuildList from "./components/BikeBuildList";
+import BikeView from "./components/BikeView";
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -15,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <Navbar className="navbar" bg="success" variant="dark">
-        <Navbar.Brand Classname="metalgear" href="/" element={BikeComponent}>
+        <Navbar.Brand className="metalgear" href="/" element={BikeComponent}>
           BikeComponent
         </Navbar.Brand>
         <Nav className="me-auto">
@@ -33,6 +34,7 @@ function App() {
         <Routes>
           <Route exact path="/buildBike" element={<BikeComponent />} />
           <Route exact path="/bikes" element={<BikeBuildList />} />
+          <Route exact path="/bike/view/:id" element={<BikeView />} />
         </Routes>
       </BrowserRouter>
     </div>

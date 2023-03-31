@@ -3,6 +3,7 @@ import axios from "axios";
 import { Table } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import BikeView from "../components/BikeView";
 
 const BikeBuildList = () => {
   const [bikes, setBikes] = useState([]);
@@ -46,15 +47,14 @@ const BikeBuildList = () => {
               <td>{bike.bikeBuildId}</td>
               <td>${bike.total}</td>
               <Link
-                className="edit-link"
-                to={"/bikeBuildEdit/" + bike.bikeBuildId}
+                to={`/bike/view/${bike.bikeBuildId}`}
+                className="btn btn-info"
               >
                 Edit
               </Link>
               <Button
                 onClick={() => deleteBike(bike.bikeBuildId)}
-                size="sm"
-                variant="danger"
+                className="btn btn-danger"
               >
                 Delete
               </Button>

@@ -5,7 +5,7 @@ const sequelize= require('../config/connections')
 
 
 const Fork = sequelize.define("fork",{
-    id:{
+    forkId:{
         type:Sequelize.INTEGER,
         allowNull: false,
         primaryKey:true,

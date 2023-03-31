@@ -5,7 +5,7 @@ const sequelize= require('../config/connections')
 
 
 const Chainring = sequelize.define("chainring",{
-    id:{
+    chainringId:{
         type:Sequelize.INTEGER,
         allowNull: false,
         primaryKey:true,

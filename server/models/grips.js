@@ -5,7 +5,7 @@ const sequelize= require('../config/connections')
 
 
 const Grips = sequelize.define("grips",{
-    id:{
+    gripsId:{
         type:Sequelize.INTEGER,
         allowNull: false,
         primaryKey:true,

@@ -4,8 +4,8 @@ const sequelize= require('../config/connections')
 
 
 
-const Dropperpost = sequelize.define("seatpost",{
-    id:{
+const Dropperpost = sequelize.define("dropper",{
+    dropperpostId:{
         type:Sequelize.INTEGER,
         allowNull: false,
         primaryKey:true,

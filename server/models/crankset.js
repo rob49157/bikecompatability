@@ -4,8 +4,8 @@ const sequelize= require('../config/connections')
 
 
 
-const crankset= sequelize.define("crankset",{
-    id:{
+const Crankset= sequelize.define("crankset",{
+    cranksetId:{
         type:Sequelize.INTEGER,
         allowNull: false,
         primaryKey:true,
@@ -15,14 +15,10 @@ const crankset= sequelize.define("crankset",{
         type:Sequelize.STRING,
         allowNull:false,
     },
-    size:{
-        type:Sequelize.INTEGER,
-        allowNull:false,
-    },
     price:{
         type:Sequelize.INTEGER,
         allowNull:false
     }
 })
 
-module.exports = crankset
+module.exports = Crankset

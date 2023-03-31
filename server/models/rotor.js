@@ -5,7 +5,7 @@ const sequelize= require('../config/connections')
 
 
 const Rotor = sequelize.define("rotor",{
-    id:{
+    rotorId:{
         type:Sequelize.INTEGER,
         allowNull: false,
         primaryKey:true,

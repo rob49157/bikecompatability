@@ -5,7 +5,7 @@ const sequelize= require('../config/connections')
 
 
 const stem = sequelize.define("stem",{
-    id:{
+    stemId:{
         type:Sequelize.INTEGER,
         allowNull: false,
         primaryKey:true,

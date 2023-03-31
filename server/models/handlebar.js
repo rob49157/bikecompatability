@@ -5,7 +5,7 @@ const sequelize= require('../config/connections')
 
 
 const Handlebar = sequelize.define("handlebar",{
-    id:{
+    handlebarId:{
         type:Sequelize.INTEGER,
         allowNull: false,
         primaryKey:true,

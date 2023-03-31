@@ -5,7 +5,7 @@ const sequelize= require('../config/connections')
 
 
 const Headset = sequelize.define("headset",{
-    id:{
+    headsetId:{
         type:Sequelize.INTEGER,
         allowNull: false,
         primaryKey:true,

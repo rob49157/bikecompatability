@@ -5,7 +5,7 @@ const sequelize= require('../config/connections')
 
 
 const Saddle = sequelize.define("saddle",{
-    id:{
+    saddleId:{
         type:Sequelize.INTEGER,
         allowNull: false,
         primaryKey:true,

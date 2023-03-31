@@ -5,7 +5,7 @@ const sequelize= require('../config/connections')
 
 
 const Frame = sequelize.define("Frame",{
-    id:{
+    frameId:{
         type:Sequelize.INTEGER,
         allowNull: false,
         primaryKey:true,

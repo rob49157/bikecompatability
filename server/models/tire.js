@@ -4,7 +4,7 @@ const sequelize= require('../config/connections')
 
 
 const Tire= sequelize.define("tire",{
-    id:{
+    tireId:{
         type:Sequelize.INTEGER,
         allowNull: false,
         primaryKey:true,

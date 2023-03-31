@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import Options from "./Options"
 import Table from 'react-bootstrap/Table';
@@ -20,6 +19,7 @@ function BikeComponent( ) {
         fetch(`http://localhost:3001/${apiComponent}`)
             .then(response => response.json())
             .then(data => setbikeParts(data[apiComponent]))
+            .then(d => console.log(d))
     }, [apiComponent])
 
     function onAdd(bikePart) {

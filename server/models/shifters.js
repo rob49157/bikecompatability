@@ -5,7 +5,7 @@ const sequelize= require('../config/connections')
 
 
 const Shifter = sequelize.define("shifter",{
-    id:{
+    shifterId:{
         type:Sequelize.INTEGER,
         allowNull: false,
         primaryKey:true,

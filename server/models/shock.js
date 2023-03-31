@@ -2,8 +2,8 @@ const Sequelize = require('sequelize')
 const sequelize= require('../config/connections')
 
 
-const Shock = sequelize.define("rear_travel",{
-  id: {
+const Shock = sequelize.define("shock",{
+  shockId: {
     type: Sequelize.INTEGER,
     allowNull: false,
     primaryKey: true,

@@ -5,7 +5,7 @@ const sequelize= require('../config/connections')
 
 
 const Hubs =sequelize.define("hubs",{
-    id:{
+    hubsId:{
         type:Sequelize.INTEGER,
         allowNull: false,
         primaryKey:true,
